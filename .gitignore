@@ -1,0 +1,6 @@
+bin/
+.vscode/
+src/*
+
+# src/practice 파일에 있는거만 올리기
+!src/practice/
