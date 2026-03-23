@@ -34,8 +34,7 @@ public class BookShelf implements Iterable<Book> {
     }
 
     public Iterator<Book> iteratorByYear() {
-    return new BookShelfYearIterator(this);
+        return new BookShelfYearIterator(this);
     //L#1s3
-
-}
+    }
 }
