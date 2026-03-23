@@ -27,21 +27,22 @@ public class Main {
         newBookShelf.appendBook(new Book("어린왕자", "소설", 1943, 9000));
         // L#1s4-1
 
-        // // // 명시적으로 Iterator를 사용하는 방법 
-        // Iterator<Book> it = bookShelf.iterator();
-        // while (it.hasNext()) {
-        //     Book book = it.next();
-        //     System.out.println(book.getName());
-        // }
-        // System.out.println();
+        // 명시적으로 Iterator를 사용하는 방법 
+        // 기존 구현이 여전히 작동하는 것을 확인하기 위해 코드를 유지했습니다
+        Iterator<Book> it = bookShelf.iterator();
+        while (it.hasNext()) {
+            Book book = it.next();
+            System.out.println(book.getName());
+        }
+        System.out.println();
 
-        // // 확장 for문을 사용하는 방법 
-        // for (Book book: bookShelf) {
-        //     System.out.println(book.getName());
-        // }
-        // System.out.println();
+        // 확장 for문을 사용하는 방법 
+        for (Book book: bookShelf) {
+            System.out.println(book.getName());
+        }
+        System.out.println();
 
-        // Iterator로 L#1s4-2 장르가 "소설"인 책만 출력하는 방법
+        // L#1s4-2 Iterator로 장르가 "소설"인 책만 출력하는 방법
         System.out.println("----- 채점 기준 1 : 장르 필터 Iterator 통하여 ‘소설’ 장르에 해당하는 책의 정보만 출력 -----");
         Iterator<Book> genreIt = newBookShelf.iteratorByGenre("소설");
         System.out.println("책 이름" + " | " + "장르" + " | " + "출판연도" + " | " + "가격");
