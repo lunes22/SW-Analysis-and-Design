@@ -27,35 +27,40 @@ public class Main {
         newBookShelf.appendBook(new Book("어린왕자", "소설", 1943, 9000));
         // L#1s4-1
 
-        // // 명시적으로 Iterator를 사용하는 방법 
-        Iterator<Book> it = bookShelf.iterator();
-        while (it.hasNext()) {
-            Book book = it.next();
-            System.out.println(book.getName());
-        }
-        System.out.println();
+        // // // 명시적으로 Iterator를 사용하는 방법 
+        // Iterator<Book> it = bookShelf.iterator();
+        // while (it.hasNext()) {
+        //     Book book = it.next();
+        //     System.out.println(book.getName());
+        // }
+        // System.out.println();
 
-        // 확장 for문을 사용하는 방법 
-        for (Book book: bookShelf) {
-            System.out.println(book.getName());
-        }
-        System.out.println();
+        // // 확장 for문을 사용하는 방법 
+        // for (Book book: bookShelf) {
+        //     System.out.println(book.getName());
+        // }
+        // System.out.println();
 
-        // L#1s4-2 장르가 "소설"인 책만 출력하는 방법
-        for (Book book: newBookShelf) {
-            if (book.getGenre().equals("소설")) {
-                System.out.println(book.getName());
-            }
+        // Iterator로 L#1s4-2 장르가 "소설"인 책만 출력하는 방법
+        System.out.println("----- 채점 기준 1 : 장르 필터 Iterator 통하여 ‘소설’ 장르에 해당하는 책의 정보만 출력 -----");
+        Iterator<Book> genreIt = newBookShelf.iteratorByGenre("소설");
+        System.out.println("책 이름" + " | " + "장르" + " | " + "출판연도" + " | " + "가격");
+        while (genreIt.hasNext()) {
+            Book book = genreIt.next();
+            System.out.println(book.getName() + " | " + book.getGenre() + " | " + book.getYear() + " | " + book.getPrice());   
         }
         System.out.println();
         // L#1s4-2
 
         // L#1s4-3 출판연도(year) 기준으로 최신 책부터 차례대로 꺼내와서 출력
+        System.out.println("----- 채점 기준 2 : 출판연도 역순 Iterator 통하여 ‘소설’ 장르에 해당하는 책의 정보만 최신순 정렬하여 출력 -----");
         Iterator<Book> yearIt = newBookShelf.iteratorByYear();
         System.out.println("책 이름" + " | " + "장르" + " | " + "출판연도" + " | " + "가격");
         while (yearIt.hasNext()) {
             Book book = yearIt.next();
-            System.out.println(book.getName() + " | " + book.getGenre() + " | " + book.getYear() + " | " + book.getPrice());   
+            if (book.getGenre().equals("소설")) { // L#1s4-1에서 year이 0인 책은 제외
+                System.out.println(book.getName() + " | " + book.getGenre() + " | " + book.getYear() + " | " + book.getPrice());
+            }   
         }
         System.out.println();
         // L#1s4-3
