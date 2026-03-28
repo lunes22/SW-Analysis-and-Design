@@ -5,6 +5,11 @@ public class Main {
         Banner banner = new Banner("Hello World");
         banner.showWithParen();
         banner.showWithAster();
+        
+        // 어댑터 패턴 적용
+        System.out.println("어댑터 적용");
+        Print print = new PrintBannerAdapter01("Hello World");
+        print.printWeak();
+        print.printStrong();
     }
-    
 }

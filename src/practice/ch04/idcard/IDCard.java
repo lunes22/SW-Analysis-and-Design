@@ -6,6 +6,9 @@ public class IDCard extends Product {
     private String owner;
 
     IDCard(String owner) { // 생성자 - 다른 패키지에서 접근할 수 없도록...
+        // 부모는 인자 없는 생성자를 호출
+        // super(); 
+        // 생략 가능 - 자식 클래스의 생성자에서 부모 클래스의 생성자를 호출하는 것은 기본적으로 이루어지는 일
         System.out.println(owner + "의 카드를 만듭니다.");
         this.owner = owner;
     }
