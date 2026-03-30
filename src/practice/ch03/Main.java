@@ -4,9 +4,10 @@ public class Main {
     public static void main(String[] args) {
         // 'H'를 가진 CharDisplay 인스턴스를 하나 만든다 
         // CharDisplay d1 = new CharDisplay('H');
+        // +) 'H' = char, "H" = String
         AbstractDisplay d1 = new CharDisplay('H'); // 부모타입으로 선언해도 자식을 가리킬 수 있기 때문에 가능한 코드(LSP 원칙을 따름)
         d1.display();
-        d1.open();
+        d1.open(); // 여는 문자가 출력됨
 
         // "Hello, world."를 가진 StringDisplay 인스턴스를 하나 만든다 
         // StringDisplay d2 = new StringDisplay("Hello, world.");

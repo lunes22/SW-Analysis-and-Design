@@ -1,4 +1,4 @@
-package ch03.Sample;
+package hw.ch03;
 
 public class StringDisplay extends AbstractDisplay {
     private String string;  // 표시해야 하는 문자열 
@@ -6,6 +6,13 @@ public class StringDisplay extends AbstractDisplay {
 
     // 생성자 
     public StringDisplay(String string) {
+        super(5); // L03S1_반복 횟수 명시하지 않음
+        this.string = string;
+        this.width = string.length();
+    }
+
+    public StringDisplay(String string, int repeatCount) {
+        super(repeatCount); // L03S1_반복 횟수 명시
         this.string = string;
         this.width = string.length();
     }

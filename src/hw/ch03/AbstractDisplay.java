@@ -1,16 +1,22 @@
-package ch03.Sample;
+package hw.ch03;
 
 public abstract class AbstractDisplay {
-    // open, print, close는 하위 클래스에 구현을 맡기는 추상 메소드 
+    // L03S1_반복 횟수 저장 필드
+    public int repeatCount;
+
+    // L03S1_인자 받는 메소드 추가
+    public AbstractDisplay(int repeatCount) {
+        this.repeatCount = repeatCount;
+    }
+
+    // abstract method
     public abstract void open();
     public abstract void print();
     public abstract void close();
 
-    // display는 AbstractDisplay에서 구현하는 메소드 
-    // 큰 틀을 제공함
     public final void display() {
         open();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < repeatCount; i++) { // L03S1_ 필드 값 사용
             print();
         }
         close();
