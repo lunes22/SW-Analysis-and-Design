@@ -2,7 +2,7 @@ package hw.ch03;
 
 public abstract class AbstractDisplay {
     // L03S1_반복 횟수 저장 필드
-    public int repeatCount;
+    private int repeatCount;
 
     // L03S1_인자 받는 메소드 추가
     public AbstractDisplay(int repeatCount) {
