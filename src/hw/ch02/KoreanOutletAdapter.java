@@ -5,7 +5,7 @@ package hw.ch02;
 // Adaptee: KoreanOutlet
 public class KoreanOutletAdapter implements Charger{
 
-    private KoreanOutlet koreanOutlet;
+    private KoreanOutlet koreanOutlet; // 위임 대상인 KoreanOutlet 객체를 참조하고 처리를 맡김
 
     public KoreanOutletAdapter(){
         this.koreanOutlet = new KoreanOutlet();
