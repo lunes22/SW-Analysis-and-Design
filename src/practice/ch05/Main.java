@@ -19,5 +19,10 @@ public class Main {
         //실제 (주소) 값도 같은지 확인
         System.out.println("s2의 값: " + s2);
         System.out.println("s3의 값: " + s3);
+
+        //Singleton2 사용하기
+        Singleton2 s4 = Singleton2.INSTANCE;
+        s4.Hello();
+
     }
 }
