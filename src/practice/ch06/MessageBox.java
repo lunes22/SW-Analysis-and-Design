@@ -1,16 +1,12 @@
 package practice.ch06;
 
-import ch06.Sample.framework.Product;
+import practice.ch06.framework.Product;
 
 public class MessageBox implements Product {
     private char decochar;
 
     public MessageBox(char decochar) {
         this.decochar = decochar;
-    }
-
-    public MessageBox(String s) {
-        //TODO Auto-generated constructor stub
     }
 
     @Override
