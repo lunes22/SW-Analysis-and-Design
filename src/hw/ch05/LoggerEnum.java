@@ -13,8 +13,3 @@ public enum  LoggerEnum {
         return logBuffer.toString(); 
     } 
 }
-
-/* 사용 방법
-    >> LoggerEnum logger = LoggerEnum.INSTANCE; 
-    >> logger.log("Message");
-*/
