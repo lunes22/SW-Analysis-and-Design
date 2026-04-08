@@ -1,7 +1,7 @@
 package hw.ch05;
 
 public class LoggerStaticInit {
-     private static final LoggerStaticInit instance = new LoggerStaticInit(); 
+    private static final LoggerStaticInit instance = new LoggerStaticInit(); 
  
     private StringBuilder logBuffer; 
  
