@@ -1,7 +1,17 @@
 package hw.ch05;
 
-public class LoggerEnum {
-    // 직접 구현
+public enum  LoggerEnum {
+    INSTANCE;
+    private StringBuilder logBuffer = new StringBuilder(); 
+
+    public void log(String message) {
+        logBuffer.append("[").append(System.currentTimeMillis()).append("] ").append(message).append("\n"); 
+        System.out.println("[LoggerStaticInit] " + message); 
+    } 
+    
+    public String getLog() { 
+        return logBuffer.toString(); 
+    } 
 }
 
 /* 사용 방법
