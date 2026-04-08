@@ -3,8 +3,6 @@ package hw.ch05;
 // [2-2] Synchronized Lazy 테스트
 public class Main2 {
     public static void main(String[] args) {
-        /* LoggerSynchronizedLazy.java 구현 후 이 주석 제거 및 아래 코드 주석 풀기 */     
-
         System.out.println("\n========== 방식 2: Synchronized Lazy =========="); 
         LoggerSynchronizedLazy logger2a = LoggerSynchronizedLazy.getInstance(); 
         LoggerSynchronizedLazy logger2b = LoggerSynchronizedLazy.getInstance(); 
