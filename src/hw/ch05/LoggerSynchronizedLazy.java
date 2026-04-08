@@ -9,7 +9,6 @@ public class LoggerSynchronizedLazy {
     private LoggerSynchronizedLazy() {
         System.out.println("Singleton 객체가 생성됩니다.");
         logBuffer = new StringBuilder(); 
-        slowdown(); 
     }
 
     // 2. 객체 얻어가는 메소드 정의
@@ -18,13 +17,6 @@ public class LoggerSynchronizedLazy {
             LogSync = new LoggerSynchronizedLazy(); 
         }
         return LogSync; 
-    }
-
-    private void slowdown() {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-        }
     }
 
     public void log(String message) {
