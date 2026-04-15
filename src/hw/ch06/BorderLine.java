@@ -2,7 +2,7 @@ package hw.ch06;
 
 import hw.ch06.framework.Product;
 
-public class BorderLine implements Product {
+public class BorderLine implements Product { // 새로운 클래스
     private char borderChar;
     
     // 1. 생성자: 경계 문자를 인자로 받음

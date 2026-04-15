@@ -10,7 +10,7 @@ public class MessageBox implements Product {
     }
 
     @Override
-    public void use(String s) {
+    public void use(String s) { //글을 가운데 두고 감싸는 형태
         int decolen = 1 + s.length() + 1;
         for (int i = 0; i < decolen; i++) {
             System.out.print(decochar);

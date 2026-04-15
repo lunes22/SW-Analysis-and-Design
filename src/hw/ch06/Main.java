@@ -34,7 +34,7 @@ public class Main {
         System.out.println("\n===== Clone Test =====");
         Product p3_copy = manager.create("border");
         if(p3 != p3_copy) {
-            System.out.println("✓ 정상적으로 복사됨 (서로 다른 인스턴스)");
+            System.out.println("✓ 정상적으로 복사됨 (서로 다른 인스턴스)"); // 올바른 결과
         } else{
             System.out.println("✗ 복사 실패");
         }

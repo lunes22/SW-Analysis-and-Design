@@ -1,6 +1,6 @@
 package hw.ch06.framework;
 
-public interface Product extends Cloneable { // 클론메서드 자동 생성? / Clonable 인터페이스 중요
+public interface Product extends Cloneable { // clone() 사용 위함
     public abstract void use(String s);
-    public abstract Product createCopy(); // 복제 메서드
+    public abstract Product createCopy(); 
 }

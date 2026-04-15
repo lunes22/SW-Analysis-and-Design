@@ -15,20 +15,18 @@ public class UnderlinePen implements Product {
         
         System.out.println(s);
 
-        for (int i = 0; i < ulen; i++) { // 밑줄 긋는 일을 한다.
+        for (int i = 0; i < ulen; i++) { 
             System.out.print(ulchar);
         }
         System.out.println();
     }
 
     @Override
-    // 복제 메소드 : 클론을 호출하고 리턴한다.(자기자신 복제) 
-    public Product createCopy() { //: 공통된 흐름이므로 부모쪽에서 작성하여 공유하는 형태가 좋다.
-        // Product로 옮기는 경우 Product class가 interface에서 abstract class로 바뀐다.
+    public Product createCopy() { // 복제 메서드
         Product p = null;
         try {
             p = (Product)clone();
-        } catch (CloneNotSupportedException e) { // 불가능한 경우 예외가 발생한다.
+        } catch (CloneNotSupportedException e) { // 예외 처리
             e.printStackTrace();
         }
         return p;
