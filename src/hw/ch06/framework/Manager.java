@@ -4,7 +4,6 @@ package hw.ch06.framework;
 import java.util.HashMap;
 import java.util.Map;
 
-// product를 등록하고, 필요할 때 마다 복제해서 제공하는 클래스 : 매니저 역할!
 public class Manager {
     private Map<String,Product> showcase = new HashMap<>(); // 객체가 해쉬맵 -> (Key, Value) 쌍으로 관리하는 Map
     // 실제 생성되는 것(in complie): private Map<String,Product> showcase = new HashMap<String,Product>();

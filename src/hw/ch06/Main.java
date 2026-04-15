@@ -1,32 +1,42 @@
 package hw.ch06;
 
-import hw.ch06.framework.Product;
 import hw.ch06.framework.Manager;
+import hw.ch06.framework.Product;
+
 
 public class Main {
-    public static void main(String[] args) {
-        //준비 : 모든 클래스와 밀접한 관계가 있음(main), manager은 다른 클래스들과 관계가 없기 때문에(?) 코드가 수정되어도 영향이 없거나 적다
+        public static void main(String[] args) {
+        // 준비
         Manager manager = new Manager();
-        MessageBox mbox1 = new MessageBox('*');
-        MessageBox mbox2 = new MessageBox('/');
-        UnderlinePen upen1 = new UnderlinePen('+');
-
-        //등록
-        manager.register("star box", mbox1); 
-        // MessageBox mbox1 = new MessageBox('*'); 대신에 starbox라는 이름으로, 
-        // 클래스 이름이 아닌 다른 이름으로 객체를 얻어올 수 있게 됨 : 15p (3) 예시 설명
-        manager.register("plus line", upen1);
-        manager.register("slash box", mbox2);
-
-        // 등록된 이름으로 복제품을 얻어서 사용**
-        Product p1 = manager.create("star box");
-        p1.use("Hello world");
-
-        Product p2 = manager.create("plus line");
-        p2.use("Hello world");
-
-        Product p3 = manager.create("slash box");
-        p3.use("Hello world");
+        UnderlinePen upen = new UnderlinePen('-');
+        MessageBox mbox = new MessageBox('*');
+        BorderLine bline = new BorderLine('=');
         
+        // 등록
+        manager.register("underline", upen);
+        manager.register("message", mbox);
+        manager.register("border", bline);    
+
+        // 생성과 사용
+        System.out.println("=== Test 1 : UnderlinePen ===");
+        Product p1 = manager.create("underline");
+        p1.use("Welcome");
+
+        System.out.println("=== Test 2 : MessageBox ===");
+        Product p2 = manager.create("message");
+        p2.use("Welcome");
+
+        System.out.println("=== Test 3 : BorderLine ===");
+        Product p3 = manager.create("border");
+        p3.use("Welcome");
+
+        // 복사 검증
+        System.out.println("\n===== Clone Test =====");
+        Product p3_copy = manager.create("border");
+        if(p3 != p3_copy) {
+            System.out.println("✓ 정상적으로 복사됨 (서로 다른 인스턴스)");
+        } else{
+            System.out.println("✗ 복사 실패");
+        }
     }
-} // 원본을 사용하는 것이 아닌 매니저를 통하여 복제품을 생산하여 사용하는 것이 포인트!
+}
