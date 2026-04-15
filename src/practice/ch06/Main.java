@@ -11,8 +11,9 @@ public class Main {
 
         // // 복제된 객체가 일을 함
         // mbox1.createCopy().use("Hello, world");
-        // //mbox.clone()
-
+        // //mbox1.clone() // 이 경우는 복제된 객체이지 cloneable을 상속받은 것은 아니므로(자신이 아니므로) clone()으로 복사된 객체 생성 불가능
+        // // 따라서 createCopy()메소드를 활용하여 clone을 호출하도록 처리를 한다
+        
         // //원본(prototype)이 일을 함
         // UnderlinePen upen1 = new UnderlinePen('~'); // 매개변수가 char이므로 ''를 사용해야함
         // upen1.use("Hello World");
