@@ -45,5 +45,7 @@ public class Player {
             + wincount + " win, "
             + losecount + " lose"
             + "]";
-    }
+    } 
+    // 자바의 모든 클래스는 최상위 부모인 Object로부터 toString()을 상속받으며, 
+    // 출력이나 문자열 연산 시 JVM에 의해 자동으로 호출되도록 약속되어 있습니다.
 }

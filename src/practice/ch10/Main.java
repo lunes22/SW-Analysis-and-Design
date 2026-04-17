@@ -17,12 +17,40 @@ public class Main {
         // }
 
         /* 2. 플레이어 객체와 전략을 사용하여 게임 */
+        // // 1) WinningStraegy만 이용
+        // // 플레이어 2명 만들기 게임 시키기
+        // Player player1 = new Player("Luna", new WinningStrategy(314));
+        // Player player2 = new Player("Bini", new WinningStrategy(154));
+
+        // // 게임 시키기 
+        // for(int i = 0; i<10; i++){
+        //     // 플레이어 2명에서 각각 손을 얻음
+        //     Hand nextHand1 = player1.nextHand();
+        //     Hand nextHand2 = player2.nextHand();
+
+        //     // 손을 대결시킴
+        //     if (nextHand1.isStrongerThan(nextHand2)) {
+        //         System.out.println("Winner: " + player1);
+        //         player1.win();
+        //         player2.lose();
+        //     } else if (nextHand1.isWeakerThan(nextHand2)) {
+        //         System.out.println("Winner: " + player2);
+        //         player1.lose();
+        //         player2.win();
+        //     } else {
+        //         System.out.println("Even...");
+        //         player1.even();
+        //         player2.even();
+        //     }
+        // }
+
+        // 1) 2가지 전략 이용
         // 플레이어 2명 만들기 게임 시키기
-        Player player1 = new Player("Luna", new WinningStrategy(314));
+        Player player1 = new Player("Luna", new ProbStrategy(314));
         Player player2 = new Player("Bini", new WinningStrategy(154));
 
-        // 게임 시키기
-        for(int i = 0; i<10; i++){
+        // 게임 시키기 
+        for(int i = 0; i<1000; i++){
             // 플레이어 2명에서 각각 손을 얻음
             Hand nextHand1 = player1.nextHand();
             Hand nextHand2 = player2.nextHand();
@@ -42,6 +70,10 @@ public class Main {
                 player2.even();
             }
         }
-
+        System.out.println("Total Result: ");
+        System.out.println(player1);
+        System.out.println(player2); // 객체를 호출하면 JVM이 자동으로 toString()을 호출해서 문자열로 변환한 후 출력한다.
+        // = System.out.println(player);라고만 써도
+        // 내부적으로는 println(player.toString());이 실행됨(메소드를 명시적으로 작성하여도 똑같이 실행됨(문법적 문제 없음))
     }
 }
