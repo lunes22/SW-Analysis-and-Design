@@ -2,20 +2,20 @@ package practice.ch10;
 
 public class Player {
     private String name;
-    private Strategy strategy;
+    private Strategy strategy; // 부모 타입 -> 모든 종류의 자식 전략 객체를 가리킬 수 있다. => 교체가 쉽다 = "다형성"
     private int wincount;
     private int losecount;
     private int gamecount;
 
     // 이름과 전략을 받아서 플레이어를 만든다 
-    public Player(String name, Strategy strategy) {
+    public Player(String name, Strategy strategy) { // 부모 타입
         this.name = name;
         this.strategy = strategy;
     }
 
     // 전략에 따라 다음 손을 결정한다
     public Hand nextHand() {
-        return strategy.nextHand();
+        return strategy.nextHand(); // 전략 객체(strategy)에게 위임함
     }
 
     // 승리
@@ -38,7 +38,7 @@ public class Player {
     }
 
     @Override
-    public String toString() {
+    public String toString() { // 지금까지의 승부 결과 확인
         return "["
             + name + ":"
             + gamecount + " games, "

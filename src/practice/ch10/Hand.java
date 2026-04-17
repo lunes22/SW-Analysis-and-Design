@@ -1,7 +1,10 @@
 package practice.ch10;
 
+// 상수를 정의하는 클래스
 public enum Hand {
-    // 가위 바위 보를 나타내는 세 개의 enum 상수
+    // 가위 바위 보를 나타내는 세 개의 enum 상수 
+    // 각 상수는 Hand 객체를 생성해서 가짐 => 생성자를 호출
+    //+) 객체를 클래스 내부에 생성해서 가짐
     ROCK("바위", 0),
     SCISSORS("가위", 1),
     PAPER("보", 2);

@@ -6,7 +6,7 @@ public class ProbStrategy implements Strategy {
     private Random random;
     private int prevHandValue = 0;
     private int currentHandValue = 0;
-    private int[][] history = {
+    private int[][] history = { //과거의 승패를 유지(기록)하는 테이블
         { 1, 1, 1, },
         { 1, 1, 1, },
         { 1, 1, 1, },
