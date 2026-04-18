@@ -4,23 +4,38 @@ public class Main {
     public static void main(String[] args) {
     /* CyclicStrategy 구현 후 주석 풀고 확인하기! */
 
-        // System.out.println("===== RandomStrategy =====");
-        // Player player1 = new Player(Taro, new RandomStrategy(0));
+        Player player1 = new Player("Taro", new RandomStrategy(0));
 
-        // System.out.println("===== CyclicStrategy =====");
-        // Player player2 = new Player("Bob", new CyclicStrategy());
+        Player player2 = new Player("Bob", new CyclicStrategy());
 
-        // // CyclicStrategy 테스트: 순환 확인
-        // System.out.println("CyclicStrategy의 손가락 순환: ");
-        // Strategy cyclic = new CyclicStrategy();
-        // for (int i=0; i < 9; i++){
-        //     Hand hand = cyclic.nextHand();
-        //     System.out.println((i+1) + "번째: " + hand);
-        //     cyclic.study(false); // study호출해도 영향 없음
-        // }
+        // 게임 진행 코드...
+        // player1과 player2를 10번 게임을 진행시킴
+        System.out.println("===== CyclicStrategy의 손가락 순환 =====");
+        for(int i = 0; i<10; i++){
+            // 플레이어 2명에서 각각 손을 얻음
+            Hand nextHand1 = player1.nextHand();
+            Hand nextHand2 = player2.nextHand();
 
-        // // 게임 진행 코드...
+            // 손을 대결시킴
+            if (nextHand1.isStrongerThan(nextHand2)) {
+                player1.win();
+                player2.lose();
+            } else if (nextHand1.isWeakerThan(nextHand2)) {
+                player1.lose();
+                player2.win();
+            } else {
+                player1.even();
+                player2.even();
+            }
 
-        // // player1과 player2를 10번 게임을 진행시킴
+            if(i==9){
+                System.out.println("===== 게임 진행 결과 =====");
+                System.out.println(player1);
+                System.out.println(player2);
+            }
+            else{
+                System.out.println((i+1) + "번째: " + nextHand2);
+            }
+        }
     }
 }
