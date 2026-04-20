@@ -7,8 +7,9 @@ public abstract class Entry {
     // 크기를 얻는다 
     public abstract int getSize();
 
+    // printList() : 메소드 오버로딩
     // 목록을 표시한다
-    public void printList() {
+    public void printList() { // null문자열
         printList("");
     }
 

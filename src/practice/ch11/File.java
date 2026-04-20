@@ -22,5 +22,7 @@ public class File extends Entry {
     @Override
     protected void printList(String prefix) {
         System.out.println(prefix + "/" + this);
+        // prefix는 앞의 경로를 출력한다.
+        // this = this.toString()과 같다.
     }
 }
