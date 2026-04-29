@@ -46,8 +46,8 @@ public class Directory extends Entry {
     }
 
     public Entry add(Entry entry) {
-        directory.add(entry); // 자식을 담음
-        entry.setParent(this);// 자식 엔트리에 부모(현재 디렉토리)를 설정 - 부모쪽으로 이동하면서 전체 경로 구성
+        directory.add(entry);
+        entry.setParent(this);
         return this;
     }
 }
