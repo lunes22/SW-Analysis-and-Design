@@ -1,7 +1,8 @@
 package practice.ch12;
 
+// 장식자2(문자열을 사각형으로 둘러싸는 장식자)
 public class FullBorder extends Border {
-    public FullBorder(Display display) {
+    public FullBorder(Display display) { // 장식 대상을 인자로 받음
         super(display);
     }
 
@@ -19,16 +20,16 @@ public class FullBorder extends Border {
 
     @Override
     public String getRowText(int row) {
-        if (row == 0) {                                             	// 상단 테두리
+        if (row == 0) {// 상단 테두리(0행)
             return "+" + makeLine('-', display.getColumns()) + "+";
-        } else if (row == display.getRows() + 1) {                 	// 하단 테두리
+        } else if (row == display.getRows() + 1) { // 하단 테두리(마지막행 = 내용물 행수 + 1)
             return "+" + makeLine('-', display.getColumns()) + "+";
-        } else {                                                    		// 기타
+        } else { // 기타
             return "|" + display.getRowText(row - 1) + "|";
         }
     }
 
-    // 문자 ch로 count 수만큼 연속한 문자열을 만든다
+    // 문자 ch로 count 수만큼 연속한 문자열을 만든다(getRowText()에서 사용함)
     private String makeLine(char ch, int count) {
         StringBuilder line = new StringBuilder();
         for (int i = 0; i < count; i++) {
