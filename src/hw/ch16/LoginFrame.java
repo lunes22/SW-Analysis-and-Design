@@ -25,7 +25,7 @@ public class LoginFrame extends Frame implements ActionListener, Mediator {
         setBackground(Color.lightGray);
 
         // 레이아웃 매니저를 사용해 4×2 그리드를 만든다
-        setLayout(new GridLayout(4, 2));
+        setLayout(new GridLayout(5, 2));
 
         // Colleague를 생성한다 
         createColleagues();
@@ -67,7 +67,7 @@ public class LoginFrame extends Frame implements ActionListener, Mediator {
         buttonCancel = new ColleagueButton("Cancel");
 
         // Label
-        statusLabel = new ColleagueLabel(" ", Label.CENTER);
+        statusLabel = new ColleagueLabel("", Label.LEFT);
 
         // Mediator를 설정한다 
         checkGuest.setMediator(this);
@@ -95,10 +95,12 @@ public class LoginFrame extends Frame implements ActionListener, Mediator {
             textUser.setColleagueEnabled(false);
             textPass.setColleagueEnabled(false);
             buttonOk.setColleagueEnabled(true);
+            statusLabel.setColleagueEnabled(true);
         } else {
             // 사용자 로그인 
             textUser.setColleagueEnabled(true);
             textPass.setColleagueEnabled(true);
+            // statusLabel.setColleagueEnabled(false); // 수정 필요
             userpassChanged();
         }
     }
@@ -106,16 +108,19 @@ public class LoginFrame extends Frame implements ActionListener, Mediator {
     // textUser 또는 textPass의 변경이 있다 
     // 각 Colleage의 활성/비활성을 판정한다
     private void userpassChanged() {
-        if (textUser.getText().length() > 0) {
+        if (textUser.getText().length() >= 4) {
             textPass.setColleagueEnabled(true);
              if (textUser.getText().length() >= 4 && textPass.getText().length() >= 4) {
                 buttonOk.setColleagueEnabled(true);
+                statusLabel.setColleagueEnabled(true);
             } else {
                 buttonOk.setColleagueEnabled(false);
+                statusLabel.setColleagueEnabled(false);
             }
         } else {
             textPass.setColleagueEnabled(false);
             buttonOk.setColleagueEnabled(false);
+            statusLabel.setColleagueEnabled(false);
         }
     }
 

@@ -22,6 +22,9 @@ public class ColleagueLabel extends Label implements Colleague{
     @Override
     public void setColleagueEnabled(boolean enabled) {
         setEnabled(enabled);
+
+        // 글자 내용 변경
+        setText(enabled ? "● 로그인 가능" : "● 로그인 불가");
         // 활성/비활성에 맞게 글자 색을 변경
         setForeground(enabled ? Color.blue : Color.gray);
     }

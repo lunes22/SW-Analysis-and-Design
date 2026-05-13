@@ -5,3 +5,5 @@ public class Main {
         new LoginFrame("Mediator Sample");
     }
 }
+
+// 로그인 가능한데 활성화 안됨
