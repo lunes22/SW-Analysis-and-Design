@@ -27,9 +27,11 @@ public class LoginFrame extends Frame implements ActionListener, Mediator {
         setLayout(new GridLayout(4, 2));
 
         // Colleague를 생성한다 
+        // => 생성했다고 해서 바로 보이는 것은 아님 
+        // => 반드시 배치해야 보임
         createColleagues();
 
-        // 배치한다 
+        // 배치한다 (4*2 Grid)
         add(checkGuest);
         add(checkLogin);
         add(new Label("Username:"));
@@ -43,7 +45,7 @@ public class LoginFrame extends Frame implements ActionListener, Mediator {
         colleagueChanged();
 
         // 표시한다 
-        pack();
+        pack(); // 배치된 컴포넌트 정리
         setVisible(true);
     }
 
@@ -81,7 +83,7 @@ public class LoginFrame extends Frame implements ActionListener, Mediator {
         buttonCancel.addActionListener(this);
     }
 
-    // Colleage의 상태가 바뀌면 호출된다
+    // Colleage의 상태가 바뀌면 호출된다 -> 핵심함수
     @Override
     public void colleagueChanged() {
         if (checkGuest.getState()) {
@@ -99,14 +101,14 @@ public class LoginFrame extends Frame implements ActionListener, Mediator {
     // textUser 또는 textPass의 변경이 있다 
     // 각 Colleage의 활성/비활성을 판정한다
     private void userpassChanged() {
-        if (textUser.getText().length() > 0) {
+        if (textUser.getText().length() > 0) { // TextUser에 입력이 있으면 활성화
             textPass.setColleagueEnabled(true);
             if (textPass.getText().length() > 0) {
                 buttonOk.setColleagueEnabled(true);
             } else {
                 buttonOk.setColleagueEnabled(false);
             }
-        } else {
+        } else { // TextUser가 비어있으면
             textPass.setColleagueEnabled(false);
             buttonOk.setColleagueEnabled(false);
         }
