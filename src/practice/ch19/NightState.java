@@ -1,0 +1,39 @@
+package practice.ch19;
+
+public class NightState implements State {
+    private static NightState singleton = new NightState();
+
+    private NightState() {
+    }
+
+    public static State getInstance() {
+        return singleton;
+    }
+
+    @Override
+    public void doClock(Context context, int hour) { // 시간이 야간 범위 외인 경우
+        if (9 <= hour && hour < 17) { // 주간 시간인 경우...
+            context.changeState(DayState.getInstance()); // 주간 상태로 전환
+        }
+    }
+
+    @Override
+    public void doUse(Context context) { // 보안센터에 알림
+        context.callSecurityCenter("비상：야간 금고 사용！");
+    }
+
+    @Override
+    public void doAlarm(Context context) { // 보안센터에 알림
+        context.callSecurityCenter("비상벨(야간)");
+    }
+
+    @Override
+    public void doPhone(Context context) { // 통화 기록
+        context.recordLog("야간 통화 녹음");
+    }
+
+    @Override
+    public String toString() {
+        return "[야간]";
+    }
+}
