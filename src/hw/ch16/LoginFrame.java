@@ -100,7 +100,6 @@ public class LoginFrame extends Frame implements ActionListener, Mediator {
             // 사용자 로그인 
             textUser.setColleagueEnabled(true);
             textPass.setColleagueEnabled(true);
-            // statusLabel.setColleagueEnabled(false); // 수정 필요
             userpassChanged();
         }
     }
