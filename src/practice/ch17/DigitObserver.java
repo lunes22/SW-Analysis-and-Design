@@ -7,7 +7,7 @@ public class DigitObserver implements Observer {
         System.out.println("DigitObserver:" + generator.getNumber());
         
         try {
-            Thread.sleep(100); // 0.1초 대기한다
+            Thread.sleep(1000); // 1초 대기한다
         } catch (InterruptedException e) {
         }
     }
