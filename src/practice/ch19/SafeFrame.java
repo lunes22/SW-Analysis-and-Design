@@ -43,7 +43,7 @@ public class SafeFrame extends Frame implements ActionListener, Context {
         // 표시 
         pack();
         setVisible(true);
-        // 리스너 설정 
+        // 리스너 설정(default)
         buttonUse.addActionListener(this);
         buttonAlarm.addActionListener(this);
         buttonPhone.addActionListener(this);
