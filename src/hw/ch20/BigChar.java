@@ -24,7 +24,6 @@ public class BigChar {
         }
     }
 
-    // 기존 메소드 — 수정하지 않음
     public void print() {
         System.out.print(fontdata);
     }

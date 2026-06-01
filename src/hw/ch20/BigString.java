@@ -11,7 +11,6 @@ public class BigString {
         }
     }
 
-    // 기존 메소드 — 수정하지 않음
     public void print() {
         for (BigChar bc: bigchars) {
             bc.print();

@@ -18,7 +18,7 @@ public class Main {
 
         BigString bs = new BigString(args[0]);
 
-        // 테스트 4.1: 1(RED) 2(BLUE) 1(GREEN) 2(MAGENTA) 1(CYAN) 2(YELLOW) 3(BLUE)
+        // 테스트 4.1
         String[] colors = { RED, BLUE, GREEN, MAGENTA, CYAN, YELLOW, BLUE };
 
         bs.print(colors);
