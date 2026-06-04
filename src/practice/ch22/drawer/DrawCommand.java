@@ -3,6 +3,7 @@ package practice.ch22.drawer;
 import practice.ch22.command.Command;
 import java.awt.Point;
 
+// 그리기 명령
 public class DrawCommand implements Command {
     // 그리는 대상 
     protected Drawable drawable;
@@ -14,11 +15,11 @@ public class DrawCommand implements Command {
     public DrawCommand(Drawable drawable, Point position) {
         this.drawable = drawable;
         this.position = position;
-    }
+    } // 도화지와 좌표로 이루어져 있음
 
     // 실행
     @Override
     public void execute() {
         drawable.draw(position.x, position.y);
-    }
+    } // 그리는 대상(drawable)에게 그리라는 명령을 내림
 }

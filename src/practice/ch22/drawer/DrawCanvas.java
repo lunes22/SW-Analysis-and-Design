@@ -2,7 +2,7 @@ package practice.ch22.drawer;
 
 import practice.ch22.command.MacroCommand;
 
-import java.awt.Canvas;
+import java.awt.Canvas; // 흰색 캔버스를 그리기 위함
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -12,7 +12,7 @@ public class DrawCanvas extends Canvas implements Drawable {
     // 그리는 점의 반지름 
     private int radius = 6;
     // 이력 
-    private MacroCommand history;
+    private MacroCommand history; // 지금까지의 그리기 명령을 모아놓은 곳
 
     // 생성자 
     public DrawCanvas(int width, int height, MacroCommand history) {
