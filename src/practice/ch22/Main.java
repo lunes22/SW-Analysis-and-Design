@@ -19,7 +19,7 @@ public class Main extends JFrame implements MouseMotionListener, WindowListener 
     public Main(String title) {
         super(title);
 
-        this.addWindowListener(this);
+        this.addWindowListener(this); // 윈도우 이벤트 리스너 등록 - 이벤트가 발생하면 이 객체(this)가 해결한다
         canvas.addMouseMotionListener(this);
         clearButton.addActionListener(e -> {
             history.clear(); // 이력 전체 삭제
@@ -42,11 +42,13 @@ public class Main extends JFrame implements MouseMotionListener, WindowListener 
     public void mouseMoved(MouseEvent e) {
     } // 커서가 움직일 때 발생하는 이벤트, 우리는 아무것도 안하므로 빈 공간으로 둠
 
+
+    // 커맨드 패턴의 핵심
     @Override
     public void mouseDragged(MouseEvent e) {
-        Command cmd = new DrawCommand(canvas, e.getPoint());
-        history.append(cmd);
-        cmd.execute();
+        Command cmd = new DrawCommand(canvas, e.getPoint()); // 그리기 명령 객체가 생성됨
+        history.append(cmd); // 그리기 명령이 이력에 추가됨
+        cmd.execute(); // 그리기 명령을 실행함
     }
 
     // WindowListener용 
