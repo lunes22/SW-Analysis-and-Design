@@ -16,12 +16,21 @@ public class Main extends JFrame implements MouseMotionListener, WindowListener 
     // 각 버튼에 대한 액션 리스너가 필요
     // 삭제 버튼 
     private JButton clearButton  = new JButton("clear");
+
     // 빨간 버튼 
     private JButton redButton  = new JButton("red");
     // 초록 버튼
     private JButton greenButton  = new JButton("green");
     // 파란 버튼
     private JButton blueButton  = new JButton("blue");
+
+    // undo 버튼
+    private JButton undoButton  = new JButton("undo");
+    // redo 버튼
+    private JButton redoButton  = new JButton("redo");
+
+
+    // redo 버튼
 
     // 생성자 
     public Main(String title) {
@@ -30,11 +39,14 @@ public class Main extends JFrame implements MouseMotionListener, WindowListener 
         this.addWindowListener(this);
         canvas.addMouseMotionListener(this);
         // 액션 리스너들에 람다 함수 사용함
+        // clear 버튼 액션 리스너
         clearButton.addActionListener(e -> {
             history.clear();
             canvas.init();
             canvas.repaint();
         });
+
+        // 색깔버튼 액션 리스너
         redButton.addActionListener(e -> {
             Command cmd = new ColorCommand(canvas, Color.red); //색깔 명령 객체 생성
             history.append(cmd);
@@ -51,11 +63,23 @@ public class Main extends JFrame implements MouseMotionListener, WindowListener 
             cmd.execute();
         });
 
+        // undo/redo 버튼 액션 리스너
+        undoButton.addActionListener(e -> {
+            history.undo();
+            canvas.repaint();
+        });
+        redoButton.addActionListener(e -> {
+            history.redo();
+            canvas.repaint();
+        });
+
         Box buttonBox = new Box(BoxLayout.X_AXIS);
         buttonBox.add(clearButton);
         buttonBox.add(redButton);
         buttonBox.add(greenButton);
         buttonBox.add(blueButton);
+        buttonBox.add(undoButton);
+        buttonBox.add(redoButton);
         Box mainBox = new Box(BoxLayout.Y_AXIS);
         mainBox.add(buttonBox);
         mainBox.add(canvas);

@@ -33,7 +33,8 @@ public class DrawCanvas extends Canvas implements Drawable {
     public void init() {
         color = Color.red;
         radius = 6;
-        history.append(new ColorCommand(this, color));
+        // 중요(초기화 시 기본적으로 컬러 객체를 하나 쌓아놓고 시작하게 함)
+        history.append(new ColorCommand(this, color)); 
     }
 
     // 그리기 
