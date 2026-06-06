@@ -10,10 +10,10 @@ public class Main {
         Support elmo = new OddSupport("Elmo");
         Support fred = new LimitSupport("Fred", 300);
 
-        // 사슬 형성 
+        // 사슬 형성(첫번째 해결자에게 던져주면 사슬을 따라서 쭉 처리)
         alice.setNext(bob).setNext(charlie).setNext(diana).setNext(elmo).setNext(fred);
 
-        // 문제를 첫번째 객체에게 던져줌
+        // 문제를 첫번째 객체(alice)에게 던져줌
         for (int i = 0; i < 500; i += 33) {
             alice.support(new Trouble(i));
         }
