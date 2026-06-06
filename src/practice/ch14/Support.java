@@ -2,11 +2,11 @@ package practice.ch14;
 
 public abstract class Support {
     private String name;    // 이 트러블 해결자 이름
-    private Support next;   // 떠넘길 곳
+    private Support next;   // 떠넘길 곳(Support: 부모타입 => 모든 종류의 해결자들을 가리킬 수 있다)
 
     public Support(String name) {
         this.name = name;
-        this.next = null;
+        this.next = null; // 초깃값으로는 다음사람이 없는 것으로 null로 설정
     }
 
     // 떠넘길 곳을 설정한다
@@ -33,7 +33,7 @@ public abstract class Support {
     }
 
     // 해결하려고 한다
-    protected abstract boolean resolve(Trouble trouble);
+    protected abstract boolean resolve(Trouble trouble); // 자식들이 해결 방법을 구현(결정)함
 
     // 해결했다 
     protected void done(Trouble trouble) {
