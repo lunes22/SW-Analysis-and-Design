@@ -15,7 +15,7 @@ public class BigChar {
     public BigChar(char charname) {
         this.charname = charname;
         try {
-            String filename = "big" + charname + ".txt"; // 읽어드리는 파일의 구조
+            String filename = "src/big" + charname + ".txt"; // 읽어들이는 파일의 구조
 
             StringBuilder sb = new StringBuilder(); // StringBuilder: String을 만들어갈 때 사용하는 클래스
             // Files : 파일로부터 내용을 읽어드리는 클래스
