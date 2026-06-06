@@ -1,8 +1,10 @@
 package practice.ch21;
+
 public class Printer implements Printable {
     private String name; // 이름 
 
     // 생성자 
+    // 생성될 때 시간이 오래걸림
     public Printer() {
         heavyJob("Printer 인스턴스 생성 중");
     }
@@ -39,7 +41,7 @@ public class Printer implements Printable {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-            }
+            } // 로딩될 때 출력되는 그거인듯
             System.out.print(".");
         }
         System.out.println("완료");

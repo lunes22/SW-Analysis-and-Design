@@ -1,6 +1,8 @@
 package practice.ch21;
+
 public class PrinterProxy implements Printable {
     private String name;	// 이름
+
     private Printer real;	// '본인' 
 
     // 생성자 
@@ -18,7 +20,7 @@ public class PrinterProxy implements Printable {
     // 이름 설정 
     @Override
     public synchronized void setPrinterName(String name) {
-        if (real != null) {
+        if (real != null) { // '본인'이 이미 생성되어 있다면
             // '본인'에게도 설정한다
             real.setPrinterName(name);
         }
@@ -34,8 +36,8 @@ public class PrinterProxy implements Printable {
     // 표시 
     @Override
     public void print(String string) {
-        realize();
-        real.print(string);
+        realize(); // 본인을 생성함(프록시가 할 수 없는 역할이기 때문)
+        real.print(string); // 본인에게 위임
     }
 
     // 본인 생성 
